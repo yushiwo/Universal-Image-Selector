@@ -1,3 +1,6 @@
+## 展示  
+<img src="https://github.com/yushiwo/Universal-Image-Selector/blob/master/picture/test.gif?raw=true"/>
+
 ## 使用  
 * AndroidManifest配置
 
@@ -83,3 +86,6 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
+
+## 参考
+GitHUb地址：[https://github.com/ioneday/ImageSelector](https://github.com/ioneday/ImageSelector)
