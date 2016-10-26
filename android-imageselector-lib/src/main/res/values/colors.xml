@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="uis_white">#ffffff</color>
+    <color name="uis_white_70">#ADFFFFFF</color>
+    <color name="uis_black">#000000</color>
+    <color name="uis_black_3">#333333</color>
+    <color name="uis_green">#43c117</color>
+    <color name="uis_green_70">#AD43c117</color>
+    <color name="uis_bar_grey">#393a3e</color>
+    <color name="uis_bar_grey_90">#dd393a3e</color>
+    <color name="uis_grey">#999999</color>
+    <color name="uis_divider_color">#dcdcdc</color>
+    <color name="uis_content_grey">#353535</color>
+    <color name="uis_image_overlay">#20000000</color>
+    <color name="uis_image_overlay2">#80000000</color>
+    <color name="uis_mask">#96000000</color>
+
+    <color name="color_ff45af54">#FF45AF54</color>
+    <color name="color_6645af54">#6645AF54</color>
+    <color name="color_45af54">#45af54</color>
+    <color name="color_fcfcfc">#fcfcfc</color>
+    <color name="color_d8d8d8">#d8d8d8</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_f6454a">#f6454a</color>
+    <color name="color_eeeeee">#eeeeee</color>
+</resources>

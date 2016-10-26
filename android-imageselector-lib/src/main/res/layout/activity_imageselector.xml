@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/uis_black"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <!-- 顶部导航栏 -->
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        >
+
+        <ImageButton
+            android:id="@+id/select_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/uis_selector_back_btn"
+            android:src="@drawable/uis_ic_back" />
+
+        <RelativeLayout
+            android:id="@+id/folder_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/select_back_btn"
+            android:gravity="center_vertical">
+
+
+            <TextView
+                android:id="@+id/folder_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all_image"
+                android:textColor="@color/uis_white"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+                android:layout_toRightOf="@id/folder_name"
+                android:layout_alignBottom="@id/folder_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/uis_ic_arrow" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/folder_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_below="@id/layout_title"
+        android:background="@android:color/white"
+        android:paddingRight="3dp"
+        android:paddingLeft="3dp"
+        android:scrollbars="none" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_fcfcfc"
+        android:clickable="false"
+        android:gravity="center_vertical">
+        <View
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_d8d8d8"
+            />
+        <TextView
+            android:id="@+id/preview_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_layout"
+            android:gravity="center"
+            android:paddingRight="@dimen/margin_layout"
+            android:layout_alignParentLeft="true"
+            android:enabled="false"
+            android:textColor="@color/color_45af54"
+            android:textSize="@dimen/middle_text_size"
+            android:text="@string/preview"/>
+        <LinearLayout
+            android:id="@+id/done_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:paddingRight="15dp"
+            >
+            <TextView
+                android:id="@+id/done_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:enabled="false"
+                android:textColor="@color/uis_green_text_selector"
+                android:textSize="16sp"
+                android:paddingRight="5dp"
+                android:text="@string/done"/>
+            <TextView
+                android:id="@+id/done_num_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center"
+                android:enabled="false"
+                android:background="@drawable/uis_shape_done_num_background"
+                android:textColor="@color/uis_white"
+                android:textSize="16sp"
+                android:text="12"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

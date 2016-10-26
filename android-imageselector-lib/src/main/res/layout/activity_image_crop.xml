@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/uis_bar_grey_90"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+
+    <!-- 顶部导航栏 -->
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/uis_black"
+        android:layout_alignParentTop="true"
+        >
+
+        <ImageButton
+            android:id="@+id/corp_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/uis_selector_back_btn"
+            android:src="@drawable/uis_ic_back" />
+
+        <TextView
+            android:id="@+id/done_text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:minWidth="@dimen/min_button_width"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_text"
+            android:gravity="center"
+            android:text="@string/use"
+            android:textColor="@color/uis_white_text_selector"
+            android:textSize="@dimen/small_text_size" />
+
+    </RelativeLayout>
+
+    <com.isseiaoki.simplecropview.CropImageView
+        android:id="@+id/cropImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:cropMode="ratio_1_1" />
+</LinearLayout>

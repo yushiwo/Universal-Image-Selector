@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_height="110dp">
+
+    <ImageView
+        android:id="@+id/id_item_answer_add_view"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/btn_add_normal"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/id_item_answer_image_view"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+</FrameLayout>

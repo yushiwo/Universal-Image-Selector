@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="183.5dp"
+    android:layout_gravity="bottom"
+    >
+
+    <TextView
+        android:id="@+id/id_tv_popup_window_title"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:gravity="center"
+        android:textColor="#999999"
+        android:textSize="16sp"
+        android:background="#ffffff"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc"/>
+    <Button
+        android:id="@+id/id_btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:textSize="18sp"
+        android:textColor="#f6454a"
+        android:background="@drawable/uis_btn_white"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#eeeeee"/>
+    <Button
+        android:id="@+id/id_btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:background="@drawable/uis_btn_white"
+        />
+</LinearLayout>
