@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="android-imageselector-lib-1.0.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.netease.imageSelector/android-imageselector-lib/1.0.1/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.netease.imageSelector/android-imageselector-lib/1.0.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netease.imageSelector/android-imageselector-lib/1.0.1/a5ce096c37acd09fd6728af007ebb40c755cb90b/android-imageselector-lib-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

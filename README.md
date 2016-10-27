@@ -2,6 +2,11 @@
 <img src="https://github.com/yushiwo/Universal-Image-Selector/blob/master/picture/test.gif?raw=true"/>
 
 ## 使用  
+* build.gradle配置  
+
+```
+compile 'com.netease.imageSelector:android-imageselector-lib:1.0.1'
+```
 * AndroidManifest配置
 
 ```
