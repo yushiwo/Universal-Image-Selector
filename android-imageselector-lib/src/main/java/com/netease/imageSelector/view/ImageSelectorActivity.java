@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -24,6 +25,7 @@ import com.netease.imageSelector.model.LocalMedia;
 import com.netease.imageSelector.model.LocalMediaFolder;
 import com.netease.imageSelector.utils.FileUtils;
 import com.netease.imageSelector.utils.GridSpacingItemDecoration;
+import com.netease.imageSelector.utils.ImageUtils;
 import com.netease.imageSelector.utils.LocalMediaLoader;
 import com.netease.imageSelector.utils.ScreenUtils;
 import com.netease.imageSelector.utils.StatusBarUtils;
@@ -284,6 +286,8 @@ public class ImageSelectorActivity extends AppCompatActivity {
             // on take photo success
             if (requestCode == REQUEST_CAMERA) {
                 sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(new File(cameraPath))));
+                ImageUtils.addImageToGallery(cameraPath, this);
+                Log.d("zrr", cameraPath);
                 if (enableCrop) {
                     startCrop(cameraPath);
                 } else {
@@ -322,6 +326,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
         if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             File cameraFile = FileUtils.createCameraFile(this);
             cameraPath = cameraFile.getAbsolutePath();
+            Log.d("zr", cameraPath);
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cameraFile));
             startActivityForResult(cameraIntent, REQUEST_CAMERA);
         }
@@ -344,6 +349,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
         ArrayList<String> images = new ArrayList<>();
         for (LocalMedia media : medias) {
             images.add(media.getPath());
+            Log.d("zrr", media.getPath());
         }
         onResult(images);
     }

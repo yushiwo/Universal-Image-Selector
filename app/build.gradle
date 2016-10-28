@@ -26,7 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.netease.imageSelector:android-imageselector-lib:1.0.1'
-//    compile project(':android-imageselector-lib')
+//    compile 'com.netease.imageSelector:android-imageselector-lib:1.0.1'
+    compile project(':android-imageselector-lib')
 
 }
