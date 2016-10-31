@@ -2,6 +2,7 @@ package com.netease.imageSelector.view;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -28,6 +30,7 @@ import com.netease.imageSelector.model.LocalMedia;
 import com.netease.imageSelector.utils.ScreenUtils;
 import com.netease.imageSelector.utils.StatusBarUtils;
 import com.netease.imageSelector.widget.BottomPopupView;
+import com.netease.imageSelector.widget.DialogCommonView;
 import com.netease.imageSelector.widget.PreviewViewPager;
 
 import java.util.ArrayList;
@@ -174,6 +177,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
         mBottomLayout.setBackgroundColor(ImageSelectorProxy.getInstance().getTitleBarColor(this.getResources()));
         StatusBarUtils.setColor(this, ImageSelectorProxy.getInstance().getStatusBarColor(this.getResources()));
         mTitleLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, ScreenUtils.dip2px(ImagePreviewActivity.this, ImageSelectorProxy.getInstance().getTitleHeight())));
+        mBackImageButton.setImageDrawable(ImageSelectorProxy.getInstance().getImageBack(this.getResources()));
     }
 
     public void registerListener() {
@@ -239,7 +243,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
         mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDeleteDialog(v);
+                showDeleteDialog();
             }
         });
 
@@ -251,14 +255,28 @@ public class ImagePreviewActivity extends AppCompatActivity {
         });
     }
 
-    private void showDeleteDialog(View v){
-        BottomPopupView dialog = new BottomPopupView(ImagePreviewActivity.this, "确定要删除这张图片吗？", "删除", "取消");
-        dialog.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-        dialog.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setBackgroundDrawable(new ColorDrawable(0xffffff));
-        dialog.setCommitConfirmListener(new BottomPopupView.CommitConfirmListener() {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            if(previewMode == ImageSelectorConstant.PREVIEW_MODE_NORMAL){
+                onDoneClick(false);
+            }else{
+                onResult(selectImages);
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void showDeleteDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ImagePreviewActivity.this);
+        DialogCommonView view = new DialogCommonView(ImagePreviewActivity.this);
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        view.setMessage("确定要删除这张图片吗？");
+        view.setRightBtn("删除", new View.OnClickListener() {
             @Override
-            public void onConfirm() {
+            public void onClick(View v) {
                 int position = viewPager.getCurrentItem();
                 selectImages.remove(position);
                 images.remove(position);
@@ -270,22 +288,54 @@ public class ImagePreviewActivity extends AppCompatActivity {
                 if(selectImages.size() <= 0){
                     onResult(selectImages);
                 }
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onPopWindowDismiss() {
-                mMaskView.setVisibility(View.GONE);
+                dialog.dismiss();
             }
         });
-
-        dialog.showAtLocation(v, Gravity.BOTTOM, 0, 0);
-        mMaskView.setVisibility(View.VISIBLE);
+        view.setLeftBtn("取消", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
     }
+
+//    private void showDeleteDialog(View v){
+//        BottomPopupView dialog = new BottomPopupView(ImagePreviewActivity.this, "确定要删除这张图片吗？", "删除", "取消");
+//        dialog.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+//        dialog.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.setBackgroundDrawable(new ColorDrawable(0xffffff));
+//        dialog.setCommitConfirmListener(new BottomPopupView.CommitConfirmListener() {
+//            @Override
+//            public void onConfirm() {
+//                int position = viewPager.getCurrentItem();
+//                selectImages.remove(position);
+//                images.remove(position);
+//                mDeleteAdapter.updateData(selectImages);
+//
+//                onSelectNumChange();
+//                mTitleTextView.setText(viewPager.getCurrentItem() + 1 + "/" + images.size());
+//                // 全部删光,关闭预览界面
+//                if(selectImages.size() <= 0){
+//                    onResult(selectImages);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onPopWindowDismiss() {
+//                mMaskView.setVisibility(View.GONE);
+//            }
+//        });
+//
+//        dialog.showAtLocation(v, Gravity.BOTTOM, 0, 0);
+//        mMaskView.setVisibility(View.VISIBLE);
+//    }
 
     @SuppressLint("StringFormatMatches")
     public void onSelectNumChange() {

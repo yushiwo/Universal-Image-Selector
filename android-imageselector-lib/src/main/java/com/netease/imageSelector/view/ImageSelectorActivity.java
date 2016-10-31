@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -25,7 +24,6 @@ import com.netease.imageSelector.model.LocalMedia;
 import com.netease.imageSelector.model.LocalMediaFolder;
 import com.netease.imageSelector.utils.FileUtils;
 import com.netease.imageSelector.utils.GridSpacingItemDecoration;
-import com.netease.imageSelector.utils.ImageUtils;
 import com.netease.imageSelector.utils.LocalMediaLoader;
 import com.netease.imageSelector.utils.ScreenUtils;
 import com.netease.imageSelector.utils.StatusBarUtils;
@@ -204,6 +202,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
         mTitleLayout.setBackgroundColor(ImageSelectorProxy.getInstance().getTitleBarColor(this.getResources()));
         StatusBarUtils.setColor(this, ImageSelectorProxy.getInstance().getStatusBarColor(this.getResources()));
         mTitleLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ScreenUtils.dip2px(ImageSelectorActivity.this, ImageSelectorProxy.getInstance().getTitleHeight())));
+        mBackImageButton.setImageDrawable(ImageSelectorProxy.getInstance().getImageBack(this.getResources()));
     }
 
     public void registerListener() {

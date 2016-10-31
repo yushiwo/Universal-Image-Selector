@@ -40,22 +40,27 @@
 
         <CheckBox
             android:id="@+id/checkbox_select"
+            android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:button="@drawable/uis_checkbox_checktor"
+            android:button="@null"
+            android:drawableRight="@drawable/uis_checkbox_checktor"
             android:layout_centerInParent="true"
-            android:layout_marginRight="15dp" />
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
 
         <ImageButton
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:background="#00000000"
             android:src="@drawable/uis_selector_delete_btn"
             android:layout_centerInParent="true"
-            android:layout_marginRight="15dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:visibility="gone"
             />
 
     </RelativeLayout>

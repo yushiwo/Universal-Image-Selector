@@ -31,6 +31,13 @@ public class ImageSelectorConfiguration {
     int titleBarColor = -1;
     int statusBarColor = -1;
     float titleHeight = -1;
+    /** 拍照图片保存目录 */
+    public String imageSaveDirectory = null;
+    public int imageSaveDirectoryRes = -1;
+    /** 返回按钮图片 */
+    public Drawable imageBack = null;
+    public int imageResBack = -1;
+
 
 
     public ImageSelectorConfiguration(final Builder builder) {
@@ -47,6 +54,10 @@ public class ImageSelectorConfiguration {
         titleBarColor = builder.titleBarColor;
         statusBarColor = builder.statusBarColor;
         titleHeight = builder.titleHeight;
+        imageSaveDirectory = builder.imageSaveDirectory;
+        imageSaveDirectoryRes = builder.imageSaveDirectoryRes;
+        imageBack = builder.imageBack;
+        imageResBack = builder.imageResBack;
     }
 
     /**
@@ -86,6 +97,12 @@ public class ImageSelectorConfiguration {
         private int titleBarColor = -1;
         private int statusBarColor = -1;
         private float titleHeight = -1;
+        /** 拍照图片保存目录 */
+        private String imageSaveDirectory = null;
+        private int imageSaveDirectoryRes = -1;
+        /** 返回按钮图片 */
+        private Drawable imageBack = null;
+        private int imageResBack = -1;
 
         public Builder(Context context) {
             this.context = context.getApplicationContext();
@@ -201,9 +218,39 @@ public class ImageSelectorConfiguration {
             return this;
         }
 
+        /**
+         * 设置图片选择器保存拍照图片的目录
+         * @param imageSaveDirectory
+         * @return
+         */
+        public Builder setImageSaveDirectory(String imageSaveDirectory){
+            this.imageSaveDirectory = imageSaveDirectory;
+            return this;
+        }
+
+        public Builder setImageSaveDirectory(int imageSaveDirectoryRes){
+            this.imageSaveDirectoryRes = imageSaveDirectoryRes;
+            return this;
+        }
+
         public ImageSelectorConfiguration build(){
             initEmptyFieldsWithDefaultValues();
             return new ImageSelectorConfiguration(this);
+        }
+
+        /**
+         * 设置返回按钮的图片
+         * @param
+         * @return
+         */
+        public Builder setImageBack(Drawable image) {
+            this.imageBack = image;
+            return this;
+        }
+
+        public Builder setImageBack(int imageRes){
+            this.imageResBack = imageRes;
+            return this;
         }
 
         private void initEmptyFieldsWithDefaultValues() {
@@ -235,6 +282,12 @@ public class ImageSelectorConfiguration {
 
             if(titleHeight <= 0){
                 titleHeight = 48;
+            }
+            if(imageSaveDirectoryRes == -1 && imageSaveDirectory == null){
+                imageSaveDirectoryRes = R.string.app_name;
+            }
+            if(imageResBack == -1 && imageBack == null){
+                imageResBack = R.drawable.uis_ic_back;
             }
         }
     }

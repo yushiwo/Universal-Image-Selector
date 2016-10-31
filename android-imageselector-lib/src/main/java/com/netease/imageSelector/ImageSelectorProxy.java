@@ -108,4 +108,16 @@ public class ImageSelectorProxy implements IProxy{
         checkConfiguration();
         return configuration.titleHeight;
     }
+
+    @Override
+    public String getImageSaveDirectory(Resources res) {
+        checkConfiguration();
+        return configuration.imageSaveDirectoryRes != -1 ? res.getString(configuration.imageSaveDirectoryRes) : configuration.imageSaveDirectory;
+    }
+
+    @Override
+    public Drawable getImageBack(Resources res) {
+        checkConfiguration();
+        return configuration.imageResBack != -1 ? res.getDrawable(configuration.imageResBack) : configuration.imageBack;
+    }
 }

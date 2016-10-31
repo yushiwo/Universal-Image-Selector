@@ -28,5 +28,7 @@ public interface IProxy {
     int getTitleBarColor(Resources res);
     int getStatusBarColor(Resources res);
     float getTitleHeight();
+    String getImageSaveDirectory(Resources res);
+    Drawable getImageBack(Resources res);
 
 }

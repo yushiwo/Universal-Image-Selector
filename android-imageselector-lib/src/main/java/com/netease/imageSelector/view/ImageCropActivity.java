@@ -109,6 +109,7 @@ public class ImageCropActivity extends AppCompatActivity {
         mTitleLayout.setBackgroundColor(getInstance().getTitleBarColor(this.getResources()));
         StatusBarUtils.setColor(this, getInstance().getStatusBarColor(this.getResources()));
         mTitleLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ScreenUtils.dip2px(ImageCropActivity.this, ImageSelectorProxy.getInstance().getTitleHeight())));
+        mBackButton.setImageDrawable(ImageSelectorProxy.getInstance().getImageBack(this.getResources()));
     }
 
 

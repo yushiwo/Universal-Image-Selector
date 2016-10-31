@@ -16,14 +16,15 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-                ImageSelectorConfiguration configuration = ImageSelectorConfiguration.createDefault(this);
+//                ImageSelectorConfiguration configuration = ImageSelectorConfiguration.createDefault(this);
 
-//        ImageSelectorConfiguration configuration = new ImageSelectorConfiguration.Builder(this)
-//                .setMaxSelectNum(9)
-//                .setSpanCount(4)
-//                .setSelectMode(ImageSelectorConstant.MODE_MULTIPLE)
-//                .setTitleHeight(48)
-//                .build();
+        ImageSelectorConfiguration configuration = new ImageSelectorConfiguration.Builder(this)
+                .setImageSaveDirectory(R.string.app_name)
+                .setMaxSelectNum(9)
+                .setSpanCount(4)
+                .setSelectMode(ImageSelectorConstant.MODE_MULTIPLE)
+                .setTitleHeight(48)
+                .build();
         ImageSelector.getInstance().init(configuration);
     }
 }
