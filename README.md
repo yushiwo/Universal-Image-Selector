@@ -5,7 +5,7 @@
 * build.gradle配置  
 
 ```
-compile 'com.netease.imageSelector:android-imageselector-lib:1.0.1'
+compile 'com.netease.imageSelector:android-imageselector-lib:1.0.2'
 ```
 * AndroidManifest配置
 
@@ -91,6 +91,16 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
+
+## 版本更新
+
+### 1.0.0 && 1.0.1
+* 项目初始化  
+
+### 1.0.2  
+* 扩大相关按钮的点击区域，方便操作
+* 完善预览删除部分，点击物理返回按键的交互
+* 新增设置拍照图片保存目录，返回按钮图标设置等配置接口
 
 ## 参考
 GitHUb地址：[https://github.com/ioneday/ImageSelector](https://github.com/ioneday/ImageSelector)
