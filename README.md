@@ -5,7 +5,7 @@
 * build.gradle配置  
 
 ```
-compile 'com.netease.imageSelector:android-imageselector-lib:1.0.2'
+compile 'com.netease.imageSelector:android-imageselector-lib:1.0.3'
 ```
 * AndroidManifest配置
 
@@ -100,7 +100,11 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ### 1.0.2  
 * 扩大相关按钮的点击区域，方便操作
 * 完善预览删除部分，点击物理返回按键的交互
-* 新增设置拍照图片保存目录，返回按钮图标设置等配置接口
+* 新增设置拍照图片保存目录，返回按钮图标设置等配置接口  
+
+### 1.0.3  
+* 优化图片选择预览和完成相关交互
+* 修复在android 4.1.1系统上，popwindow收起动画导致崩溃的问题
 
 ## 参考
 GitHUb地址：[https://github.com/ioneday/ImageSelector](https://github.com/ioneday/ImageSelector)
