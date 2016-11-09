@@ -184,11 +184,15 @@ public class ImageSelectorActivity extends AppCompatActivity {
 
         previewText = (TextView) findViewById(R.id.preview_text);
         if(selectedImages != null && selectedImages.size() > 0){
-            previewText.setVisibility(View.VISIBLE);
+            previewText.setEnabled(true);
+            mDoneLayout.setEnabled(true);
+            mDoneNumTextView.setVisibility(View.VISIBLE);
+            mDoneNumTextView.setText(String.valueOf(selectedImages.size()));
         }else {
-            previewText.setVisibility(View.GONE);
+            previewText.setEnabled(false);
+            mDoneLayout.setEnabled(false);
+            mDoneNumTextView.setVisibility(View.GONE);
         }
-//        previewText.setVisibility((selectedImages.size() > 0) ? View.VISIBLE : View.GONE);
 
         folderLayout = (RelativeLayout) findViewById(R.id.folder_layout);
         folderName = (TextView) findViewById(R.id.folder_name);
@@ -233,7 +237,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
                 mDoneLayout.setEnabled(enable ? true : false);
                 previewText.setEnabled(enable ? true : false);
                 mDoneTextView.setEnabled(enable ? true : false);
-                previewText.setVisibility(enable ? View.VISIBLE : View.GONE);
                 if (enable) {
                     mDoneNumTextView.setVisibility(View.VISIBLE);
                     mDoneNumTextView.setText(String.valueOf(selectImages.size()));
@@ -327,7 +330,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
         if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             File cameraFile = FileUtils.createCameraFile(this);
             cameraPath = cameraFile.getAbsolutePath();
-            Log.d("zr", cameraPath);
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cameraFile));
             startActivityForResult(cameraIntent, REQUEST_CAMERA);
         }
@@ -350,7 +352,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
         ArrayList<String> images = new ArrayList<>();
         for (LocalMedia media : medias) {
             images.add(media.getPath());
-            Log.d("zrr", media.getPath());
         }
         onResult(images);
     }

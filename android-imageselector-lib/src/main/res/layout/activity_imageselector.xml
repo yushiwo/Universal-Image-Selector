@@ -85,7 +85,7 @@
             android:paddingRight="@dimen/margin_layout"
             android:layout_alignParentLeft="true"
             android:enabled="false"
-            android:textColor="@color/color_45af54"
+            android:textColor="@color/uis_green_text_selector"
             android:textSize="@dimen/middle_text_size"
             android:text="@string/preview"/>
         <LinearLayout

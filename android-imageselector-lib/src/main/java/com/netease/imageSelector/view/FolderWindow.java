@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -92,8 +93,13 @@ public class FolderWindow extends PopupWindow {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                isDismiss = false;
-                FolderWindow.super.dismiss();
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        isDismiss = false;
+                        FolderWindow.super.dismiss();
+                    }
+                });
             }
             @Override
             public void onAnimationRepeat(Animation animation) {
