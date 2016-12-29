@@ -107,7 +107,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 * 修复在android 4.1.1系统上，popwindow收起动画导致崩溃的问题
 
 ## 参考
-GitHUb地址：[https://github.com/ioneday/ImageSelector](https://github.com/ioneday/ImageSelector)
+GitHub地址：[https://github.com/yushiwo/Universal-Image-Selector](https://github.com/yushiwo/Universal-Image-Selector)
 
 ## License
 ```
